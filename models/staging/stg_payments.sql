@@ -31,6 +31,7 @@ select
    payment_method as payment_method,
    status,
    -- amount is stored in cents, convert it to dollars
-   amount / 100 as amount
+   --amount / 100 as amount,
+   {{ cents_to_dollars('amount') }} as amount_usd
 
 from {{ ref('raw_payments') }}
