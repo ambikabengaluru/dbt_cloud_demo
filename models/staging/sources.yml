@@ -51,7 +51,7 @@ sources:
   - name: jaffle_shop
     loader: fivetran
     database: my_database
-    schema: dbt_demo_2
+    schema: dbt_demo_3
 
     tables:
       - name: raw_orders
