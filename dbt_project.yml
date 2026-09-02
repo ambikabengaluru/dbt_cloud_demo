@@ -57,3 +57,9 @@ dispatch:
     search_order:
       - my_new_project
       - dbt_utils
+
+vars:
+  start_date: '2024-01-01'
+
+#   vars:
+#   start_date: "{{ env_var('START_DATE', '2024-01-01') }}"
