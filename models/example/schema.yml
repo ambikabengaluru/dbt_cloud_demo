@@ -8,7 +8,9 @@ models:
           - name: id
             description: "The primary key for this table"
             tests:
-                - unique
+                - unique:
+                    config:
+                      severity: error
                 - not_null
 
     - name: my_second_dbt_model

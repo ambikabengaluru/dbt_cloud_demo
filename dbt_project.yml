@@ -39,6 +39,7 @@ models:
   my_new_project:
     # Applies to all files under models/example/
     example:
+      +tags: ['exam','weekly']
       +materialized: table
 
 seeds:
@@ -63,3 +64,11 @@ vars:
 
 #   vars:
 #   start_date: "{{ env_var('START_DATE', '2024-01-01') }}"
+
+
+on-run-start:
+  - "CREATE TABLE IF NOT EXISTS test_table (event_type VARCHAR, executed_at TIMESTAMP)"
+  - "INSERT INTO test_table (event_type, executed_at) VALUES ('run_started', CURRENT_TIMESTAMP())"
+
+on-run-end:
+  - "INSERT INTO test_table (event_type, executed_at) VALUES ('run_ended', CURRENT_TIMESTAMP())"
