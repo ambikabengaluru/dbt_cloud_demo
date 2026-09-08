@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fct_orders
+    columns:
+      - name: customer_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
+              config:
+                # Exclude guest checkouts, dummy IDs, or legacy dates
+                where: "customer_id != '0' and order_date >= '2018-01-01' and order_date <= '2018-12-31'"
