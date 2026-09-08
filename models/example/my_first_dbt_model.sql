@@ -10,9 +10,7 @@
 
 {{ config(
     materialized='table',
-    tags=['sample', 'daily'],
-    pre_hook="CREATE TABLE IF NOT EXISTS audit_table (model_name VARCHAR, executed_at TIMESTAMP)",
-    post_hook="INSERT INTO audit_table (model_name, executed_at) VALUES ('my_first_dbt_model', CURRENT_TIMESTAMP())"
+    tags=['sample', 'daily']
 ) }}
 
 with source_data as (
